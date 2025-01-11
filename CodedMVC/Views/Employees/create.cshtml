@@ -1,0 +1,39 @@
+﻿@model Employee
+@{
+    ViewData["Title"] = "Add employee";
+}
+
+<h1>Add new employee</h1>
+<form asp-action="Create" method="post">
+<table class="table table-bordered">
+  <tr>
+        <th><label asp-for="Nam"></label></th>
+        <td><input asp-for="Nam" /></td>
+    </tr><tr>
+        <th><label asp-for="Phone"></label></th>
+        <td><input asp-for="Phone" /></td>
+    </tr><tr>
+        <th><label asp-for="Email"></label></th>
+        <td><input asp-for="Email" /></td>
+        </tr>
+    <tr>
+        <th><label asp-for="HDate"></label></th>
+        <td><input asp-for="HDate" /></td>
+
+    </tr>
+    <tr>
+        <th><label asp-for="IsActive"></label></th>
+        <td><input asp-for="IsActive" /></td>
+
+    </tr>
+    <tr>
+        <th><label asp-for="IsDeleted"></label></th>
+        <td><input asp-for="IsDeleted" /></td>
+
+    </tr>
+    <input type="submit"  class="btn btn-success"value="Save"/>
+    <a asp-action="index" class=" btn btn-danger" >cancel</a>
+</table>
+
+
+</form>

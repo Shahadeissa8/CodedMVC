@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Employee>
+@{
+	ViewData["Title"] = "index";
+}
+
+<h1>Employees</h1>
+
+<a asp-action="create" asp-controller="Employees" class=" btn btn-danger">Add</a>
+@if (Model.Any())
+{
+	<table class="table table-bordered">
+		<tr>
+			<th>@Html.DisplayNameFor(x => x.EmployeeId)</th>
+			<th>@Html.DisplayNameFor(x => x.Phone)</th>
+			<th>@Html.DisplayNameFor(x => x.Nam)</th>
+			<th>@Html.DisplayNameFor(x => x.IsActive)</th>
+			<th>@Html.DisplayNameFor(x => x.IsDeleted)</th>
+			<th>Operation</th>
+		</tr>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>@item.EmployeeId</td>
+				<td>@item.Phone</td>
+				<td>@item.Nam</td>
+				<td>@item.IsActive</td>
+				<td>@item.IsDeleted</td>
+			
+				<td>
+
+					<a asp-action="Delete"
+					   asp-controller="Employees"
+					   asp-route-id="@item.EmployeeId"
+					   class="btn btn-danger">Delete</a>
+
+					<a asp-action="Edit"
+					   asp-controller="Employees"
+					   asp-route-id="@item.EmployeeId"
+					   class="btn btn-danger">Edit</a>
+
+					<a asp-action="Details"
+					   asp-controller="Employees"
+					   asp-route-id="@item.EmployeeId"
+					   class="btn btn-warning">Details</a>
+					   
+
+					<a asp-action="SoftDelete"
+					   asp-controller="Employees"
+					   asp-route-id="@item.EmployeeId"
+					   class="btn btn-warning">Soft Delete</a>
+
+				</td>
+			</tr>
+		}
+	</table>
+}
+else
+{
+	<div class="alert alert-warning"> No employee in this list</div>
+}

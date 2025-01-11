@@ -1,0 +1,45 @@
+﻿@model Employee
+@{
+	ViewData["Title"] = "Edit";
+}
+
+<h1>Edit employee</h1>
+<form asp-action="Edit" method="post">
+	@Html.HiddenFor(x => x.EmployeeId)
+	<table class="table table-bordered">
+		<tr>
+			<th><label asp-for="Nam"></label></th>
+			<td><input asp-for="Nam" /></td>
+
+		</tr>
+
+		<tr>
+			<th><label asp-for="Phone"></label></th>
+			<td><input asp-for="Phone" /></td>
+		</tr>
+
+		<tr>
+			<th><label asp-for="Email"></label></th>
+			<td><input asp-for="Email" /></td>
+		</tr>
+
+		<tr>
+			<th><label asp-for="HDate"></label></th>
+			<td><input asp-for="HDate" /></td>
+
+		</tr>
+		<tr>
+			<td colspan="2">
+				<input type="submit" class="btn btn-success" value="Update" />
+				<a asp-action="index" class=" btn btn-danger">cancel</a>
+
+			</td>
+		</tr>
+	</table>
+
+
+</form>
+
+@* instead of updating it will insert without telling it which id to use to update,,
+
+we wrote it here as hidden so that the user isnt allowed to edit a pk when id=0 it updates and doesnt edit *@

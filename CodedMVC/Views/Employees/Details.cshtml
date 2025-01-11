@@ -1,0 +1,41 @@
+﻿@model Employee
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<table class="table table-bordered">
+    <tr>
+        <td>
+            <label asp-for="EmployeeId"></label>
+        </td>
+        <td>@Model.EmployeeId</td>
+    </tr>
+    <tr>
+        <td>
+            <label asp-for="Nam"></label>
+        </td>
+        <td>@Model.Nam</td>
+    </tr>
+    <tr>
+        <td>
+            <label asp-for="Email"></label>
+        </td>
+        <td>@Model.Email</td>
+    </tr>
+    <tr>
+        <td>
+            <label asp-for="Phone"></label>
+        </td>
+        <td>@Model.Phone</td>
+    </tr>
+    <tr>
+        <td>
+            <label asp-for="HDate"></label>
+        </td>
+        <td>@Model.HDate</td>
+    </tr>
+    <a asp-action="index" class="btn btn-primary" > Back to list</a>
+
+</table>"

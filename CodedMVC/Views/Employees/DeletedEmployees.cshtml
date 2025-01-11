@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Employee>
+@{
+	ViewData["Title"] = "Deleted Employees";
+}
+
+<h1>Deleted Employees</h1>
+@if (Model.Any())
+{
+	<table class="table table-bordered">
+		<tr>
+			<th>@Html.DisplayNameFor(x => x.Nam)</th>
+			<th>@Html.DisplayNameFor(x => x.Phone)</th>
+			<th>operation</th>
+		</tr>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>@item.Nam</td>
+				<td>@item.Phone</td>
+				<td>
+					<a asp-action="Restore"
+					   asp-controller="Employees"
+					   asp-route-id="@item.EmployeeId"
+					   class=" btn btn-primary">Restore</a>
+				</td>
+			</tr>
+		}
+	</table>
+}
+else
+{
+	<h1 class="alert alert-secondary">No data to be viewed</h1>
+}
