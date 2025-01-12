@@ -10,21 +10,32 @@
 		<th>@Html.DisplayNameFor(x => x.Nam)</th>
 		<th>@Html.DisplayNameFor(x => x.IsActive)</th>
 	</tr>
-	@foreach (var item in Model)
+	@foreach (var item in Model.Where(x=>x.IsActive))
 	{
 		<tr>
 			<td>@item.EmployeeId</td>
 			<td>@item.Nam</td>
 			<td>
-				@if (item.IsActive)
-				{
 					<span class="badge text-success">active</span>
+			</td>
+		</tr>
 
-				} //span
-				else
-				{
+	}
+</table>
+<h1>Employees Status</h1>
+<table class="table table-bordered">
+	<tr>
+		<th>@Html.DisplayNameFor(x => x.EmployeeId)</th>
+		<th>@Html.DisplayNameFor(x => x.Nam)</th>
+		<th>@Html.DisplayNameFor(x => x.IsActive)</th>
+	</tr>
+	@foreach (var item in Model.Where(x=>!x.IsActive))
+	{
+		<tr>
+			<td>@item.EmployeeId</td>
+			<td>@item.Nam</td>
+			<td>
 					<span class="badge text-danger">non-active</span>
-				}
 
 			</td>
 		</tr>
